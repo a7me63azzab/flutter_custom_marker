@@ -38,8 +38,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final Completer<GoogleMapController> _controller = Completer();
 
   static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
+    target: LatLng(37.43296265331129, -122.08832357078792),
+    zoom: 16.4746,
   );
 
   static const CameraPosition _kLake = CameraPosition(
@@ -97,8 +97,10 @@ class _MyHomePageState extends State<MyHomePage> {
       child:  ClipPath(
             clipper: ConvexClipPath(),
             child: Container(
-              width: 50,
-              height: 30,
+              // width: 50,
+              // height: 30,
+              width: 100,
+              height: 40,
               decoration: const BoxDecoration(
                 color: Colors.green,
                 // borderRadius:  BorderRadius.circular(4),
@@ -110,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(
                     "المنصوره",
                     style: TextStyle(
-                      fontSize: 10,
+                      fontSize: 20,
                       color: Colors.white,
                     ),
                   ),
@@ -121,72 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  // Widget customMarker() {
-  //   return RepaintBoundary(
-  //     key: iconKey,
-  //     child: SizedBox(
-  //       width: 70,
-  //       height: 60,
-  //       child: Stack(
-  //         overflow: Overflow.visible,
-  //         children: [
-  //           ClipPath(
-  //             clipper: ConvexClipPath(),
-  //             child: Container(
-  //               width: 50,
-  //               height: 30,
-  //               decoration: const BoxDecoration(
-  //                 color: Colors.green,
-  //                 shape: BoxShape.rectangle,
-  //               ),
-  //               child: const Center(
-  //                 child: Padding(
-  //                   padding: EdgeInsets.all(8.0),
-  //                   child: Text(
-  //                     "المنصوره",
-  //                     style: TextStyle(
-  //                       fontSize: 10,
-  //                       color: Colors.white,
-  //                     ),
-  //                   ),
-  //                 ),
-  //               ),
-  //             ),
-  //           ),
-  //           // Positioned(
-  //           //   bottom: -25,
-  //           //   left: 35,
-  //           //   right: 35,
-  //           //   child: ClipPath(
-  //           //     clipper: ConvexClipPath(),
-  //           //     child: Container(
-  //           //       width: 10,
-  //           //       height: 30,
-  //           //       decoration: const BoxDecoration(
-  //           //         color: Colors.green,
-  //           //       ),
-  //           //     ),
-  //           //   ),
-  //           // ),
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  // Widget customMarker() {
-  //   return RepaintBoundary(
-  //     key: iconKey,
-  //     child: Container(
-  //       width: 100,
-  //       height: 100,
-  //       decoration: const BoxDecoration(
-  //         color: Colors.red,
-  //         shape: BoxShape.circle,
-  //       ),
-  //     ),
-  //   );
-  // }
+ 
 
   Future<Uint8List?> _capturePng() async {
     try {
@@ -234,33 +171,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 _controller.complete(controller);
               },
             ),
-            // Positioned(
-            //   top: 100,
-            //   left: 100,
-            //   right: 100,
-            //   child: ClipPath(
-            //     clipper: ConvexClipPath(),
-            //     child: Container(
-            //       width: 10,
-            //       height: 100,
-            //       decoration: const BoxDecoration(
-            //         color: Colors.red,
-            //       ),
-            //     ),
-            //   ),
-            // ),
+        
           ],
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: _goToTheLake,
-          label: const Text('To the lake!'),
-          icon: const Icon(Icons.directions_boat),
-        ),
+        // floatingActionButton: FloatingActionButton.extended(
+        //   onPressed: _goToTheLake,
+        //   label: const Text('Show Marker'),
+        //   icon: const Icon(Icons.map_outlined),
+        // ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _add,
-        label: const Text('To the lake!'),
-        icon: const Icon(Icons.directions_boat),
+        label: const Text('Show Marker'),
+        icon: const Icon(Icons.map_outlined),
       ),
     );
   }
@@ -275,13 +198,7 @@ class ConvexClipPath extends CustomClipper<Path> {
   double factor = 55;
   @override
   Path getClip(Size size) {
-    // Path path = Path();
-    // path.lineTo(0, 0);
-    // path.lineTo(size.width / 2, size.height / 2);
-    // path.lineTo(size.width, 0);
-    // path.close();
-
-    // return path;
+    
 
     Path path = Path();
     path.lineTo(0, 0);
